@@ -14,9 +14,20 @@ export function set(ID: string, data: any, options?: OptionsWithTarget): Promise
 export function fetch(ID: string, options?: OptionsWithTarget): Promise<any>;
 export function fetchAll(options?: { table?: string }): Promise<DataArray>;
 export function startsWith(text: string, options?: { sort?: string, table?: string }): Promise<DataArray>;
-export function delete(ID: string, options?: { table?: string }): Promise<boolean>;
+declare function _delete(ID: string, options?: { table?: string }): Promise<boolean>;
+export { _delete as delete };
 export function add(ID: string, value: number, options?: OptionsWithTarget): Promise<any>;
 export function subtract(ID: string, value: number, options?: OptionsWithTarget): Promise<any>;
 export function push(ID: string, data: any, options?: OptionsWithTarget): Promise<any>;
 
-// TODO table class
+export class Table
+{
+    readonly name: string;
+    fetch(Id: string, options?: OptionsWithTarget): Promise<any>;
+    fetchAll(options?: { table?: string }): Promise<DataArray>;
+    startsWith(text: string, options?: { sort?: string, table?: string }): Promise<DataArray>;
+    delete(ID: string, options?: { table?: string }): Promise<boolean>;
+    add(ID: string, value: number, options?: OptionsWithTarget): Promise<any>;
+    subtract(ID: string, value: number, options?: OptionsWithTarget): Promise<any>;
+    push(ID: string, data: any, options?: OptionsWithTarget): Promise<any>;
+}
