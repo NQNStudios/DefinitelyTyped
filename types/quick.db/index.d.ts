@@ -9,7 +9,7 @@ type OptionsWithTarget = {
 };
 type DataArray = Array<{ID: string, data: any}>;
 
-declare module quick.db {
+declare module 'quick.db' {
 
     // TODO is any the right type for data elements? They will be null if never set
     // before, but can't be set to undefined (I think. Need to reproduce) and also
